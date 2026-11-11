@@ -1,2 +1,9 @@
 [build]
   publish = "site"
+
+# Consolidate the explicit index URL with the canonical homepage.
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true

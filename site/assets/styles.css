@@ -1120,3 +1120,11 @@ button, input, textarea { font: inherit; color: inherit; }
   .card-facts dd { font-size: 15.5px; }
   .kpi-list span { min-width: 92px; font-size: 19px; }
 }
+
+/* Вопросы об аудите: доступны без JavaScript, в обеих темах. */
+.faq-list { max-width: 860px; }
+.faq-item { border-bottom: 1px solid var(--border); padding: 22px 0; }
+.faq-item summary { cursor: pointer; font-weight: 700; font-size: 1.1rem; }
+.faq-item summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; }
+.faq-item p { margin: 16px 0 0; line-height: 1.75; }
+.faq-links { margin-top: 28px; line-height: 1.8; }
