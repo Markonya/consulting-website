@@ -644,16 +644,6 @@ button, input, textarea { font: inherit; color: inherit; }
 }
 .aside-doc:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
 
-/* Пометка о языке документа (используется в английской версии) */
-.doc-lang {
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  font-weight: 500;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
 .scope-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
