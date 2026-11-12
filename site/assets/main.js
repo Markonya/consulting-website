@@ -7,6 +7,35 @@
   var root = document.documentElement;
   var STORAGE_KEY = 'mk-theme';
 
+  /* Страницы существуют в двух языках: RU — /, EN — /en/.
+     Язык определяется по атрибуту lang, строки берутся из справочника. */
+  var isEN = (root.getAttribute('lang') || '').toLowerCase().indexOf('en') === 0;
+
+  var I18N = {
+    ru: {
+      openMenu: 'Открыть меню',
+      closeMenu: 'Закрыть меню',
+      formGreeting: 'Здравствуйте, Марьян! Хочу обсудить проект.',
+      formName: 'Имя: ',
+      formCompany: 'Компания: ',
+      formMessage: 'О проекте: ',
+      formContact: 'Связь со мной: ',
+      formFooter: '— Отправлено с сайта'
+    },
+    en: {
+      openMenu: 'Open menu',
+      closeMenu: 'Close menu',
+      formGreeting: 'Hello, Marian! I would like to discuss a project.',
+      formName: 'Name: ',
+      formCompany: 'Company: ',
+      formMessage: 'About the project: ',
+      formContact: 'Best way to reach me: ',
+      formFooter: '— Sent from the website'
+    }
+  };
+
+  var t = I18N[isEN ? 'en' : 'ru'];
+
   /* ---------------------- Переключение темы ---------------------- */
   var toggle = document.getElementById('themeToggle');
 
@@ -59,7 +88,7 @@
     mobileNav.classList.toggle('is-open', open);
     mobileNav.hidden = !open;
     navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    navToggle.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
+    navToggle.setAttribute('aria-label', open ? t.closeMenu : t.openMenu);
   }
 
   if (navToggle && mobileNav) {
@@ -71,6 +100,17 @@
     });
     window.addEventListener('resize', function () {
       if (window.innerWidth > 1080 && !mobileNav.hidden) setNav(false);
+    });
+  }
+
+  /* ------------------- Переключение языка ------------------------ */
+  // При переходе на другой язык сохраняем текущий раздел страницы:
+  // id секций в обеих версиях совпадают, поэтому якорь переносится как есть.
+  var langLinks = document.querySelectorAll('[data-lang-link]');
+  if (langLinks.length && window.location.hash) {
+    Array.prototype.forEach.call(langLinks, function (a) {
+      var href = a.getAttribute('href');
+      if (href && href.indexOf('#') === -1) a.setAttribute('href', href + window.location.hash);
     });
   }
 
@@ -143,13 +183,13 @@
       var contact = (data.get('contact') || '').toString().trim();
 
       var lines = [
-        'Здравствуйте, Марьян! Хочу обсудить проект.'
+        t.formGreeting
       ];
-      if (name) lines.push('Имя: ' + name);
-      if (company) lines.push('Компания: ' + company);
-      if (message) lines.push('О проекте: ' + message);
-      if (contact) lines.push('Связь со мной: ' + contact);
-      lines.push('— Отправлено с сайта');
+      if (name) lines.push(t.formName + name);
+      if (company) lines.push(t.formCompany + company);
+      if (message) lines.push(t.formMessage + message);
+      if (contact) lines.push(t.formContact + contact);
+      lines.push(t.formFooter);
 
       var url = 'https://t.me/Mark0nya?text=' + encodeURIComponent(lines.join('\n'));
       window.open(url, '_blank', 'noopener');
@@ -160,3 +200,4 @@
   var year = document.getElementById('year');
   if (year) year.textContent = String(new Date().getFullYear());
 })();
+
