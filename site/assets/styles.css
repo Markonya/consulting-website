@@ -185,6 +185,35 @@ button, input, textarea { font: inherit; color: inherit; }
 
 .header-actions { display: flex; align-items: center; gap: 12px; }
 
+/* Переключатель языка */
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--border-soft);
+  border-radius: 10px;
+  background: var(--surface-2);
+}
+.lang-switch a {
+  display: block;
+  min-width: 36px;
+  padding: 5px 8px;
+  border-radius: 7px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-align: center;
+  color: var(--muted);
+  transition: background-color .2s ease, color .2s ease;
+}
+.lang-switch a:hover { color: var(--accent); }
+.lang-switch a[aria-current="true"] {
+  background: var(--accent);
+  color: var(--mark-fg);
+}
+
 .theme-toggle {
   width: 38px; height: 38px;
   display: grid; place-items: center;
@@ -226,6 +255,7 @@ button, input, textarea { font: inherit; color: inherit; }
   font-family: var(--font-display);
   border-bottom: 1px solid var(--border-soft);
 }
+.mobile-nav .lang-switch { align-self: flex-start; margin-top: 14px; }
 .mobile-nav .btn { margin-top: 18px; }
 
 /* ---------------------------------- Buttons -------------------------------- */
@@ -613,6 +643,16 @@ button, input, textarea { font: inherit; color: inherit; }
   transition: border-color .2s ease, color .2s ease, background-color .2s ease;
 }
 .aside-doc:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+
+/* Пометка о языке документа (используется в английской версии) */
+.doc-lang {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
 
 .scope-grid {
   display: grid;
@@ -1115,10 +1155,19 @@ button, input, textarea { font: inherit; color: inherit; }
 
 @media (max-width: 520px) {
   .brand-text em { display: none; }
-  .brand-text strong { font-size: 16px; }
+  .brand-text strong { font-size: 15px; white-space: nowrap; }
   .card-facts dt { font-size: 12.5px; }
   .card-facts dd { font-size: 15.5px; }
   .kpi-list span { min-width: 92px; font-size: 19px; }
+  .header-inner { gap: 14px; }
+  .header-actions { gap: 8px; }
+  .lang-switch { padding: 2px; border-radius: 9px; }
+  .lang-switch a { min-width: 30px; padding: 4px 5px; font-size: 10.5px; }
+}
+
+/* На самых узких экранах в шапке остаётся монограмма и переключатель языка. */
+@media (max-width: 400px) {
+  .brand-text { display: none; }
 }
 
 /* Вопросы об аудите: доступны без JavaScript, в обеих темах. */
@@ -1128,3 +1177,4 @@ button, input, textarea { font: inherit; color: inherit; }
 .faq-item summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; }
 .faq-item p { margin: 16px 0 0; line-height: 1.75; }
 .faq-links { margin-top: 28px; line-height: 1.8; }
+
