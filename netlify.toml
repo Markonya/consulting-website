@@ -30,6 +30,6 @@
     X-Content-Type-Options = "nosniff"
     # Allow same-origin framing and Yandex Metrika/Webvisor review frames.
     # CSP frame-ancestors supports the required domain exceptions; X-Frame-Options does not.
-    Content-Security-Policy = "frame-ancestors 'self' https://metrika.yandex.ru https://metrika.yandex.by https://metrica.yandex.com https://metrica.yandex.com.tr https://*.webvisor.com"
+    Content-Security-Policy = "frame-ancestors 'self' https://metrika.yandex.ru https://metrika.yandex.by https://metrica.yandex.com https://metrica.yandex.com.tr https://webvisor.com https://*.webvisor.com"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "geolocation=(), microphone=(), camera=()"
