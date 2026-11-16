@@ -113,8 +113,10 @@ server {
 ```
 
 4. Канонический адрес, Open Graph, Twitter Card и JSON-LD настроены на
-   `https://consultingwebsite-marian.netlify.app/` (русская версия) и
-   `https://consultingwebsite-marian.netlify.app/en/` (английская версия).
+   `https://mariankrotov.com/` (русская версия) и
+   `https://mariankrotov.com/en/` (английская версия). Старый адрес
+   `consultingwebsite-marian.netlify.app` перенаправляется на новый домен
+   правилом в `netlify.toml`.
    При смене домена обновите эти адреса в `index.html` и `en/index.html`,
    а также адреса в `robots.txt` и `sitemap.xml`.
 5. Для продакшена рекомендуется подключить домен и выпустить TLS-сертификат (Let's Encrypt).
@@ -201,7 +203,7 @@ Schema.org (WebSite, WebPage, Person, Service, ImageObject и FAQPage). Свед
 
 После публикации добавьте сайт в Яндекс Вебмастер и Google Search Console,
 подтвердите владение через выданную сервисом запись DNS или метатег и отправьте
-`https://consultingwebsite-marian.netlify.app/sitemap.xml`. Затем проверяйте
+`https://mariankrotov.com/sitemap.xml`. Затем проверяйте
 индексацию, поисковые запросы и переходы. Данные подтверждения выдаются владельцу
 в этих сервисах; счётчик Метрики сам по себе не подтверждает владение.
 
