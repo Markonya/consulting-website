@@ -11,6 +11,12 @@
 # The site moved to its own domain — send the old Netlify address to it
 # so the two addresses do not compete as duplicates in search engines.
 [[redirects]]
+  from = "http://consultingwebsite-marian.netlify.app/*"
+  to = "https://mariankrotov.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "https://consultingwebsite-marian.netlify.app/*"
   to = "https://mariankrotov.com/:splat"
   status = 301
