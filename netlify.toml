@@ -7,3 +7,21 @@
   to = "/"
   status = 301
   force = true
+
+# The site moved to its own domain — send the old Netlify address to it
+# so the two addresses do not compete as duplicates in search engines.
+[[redirects]]
+  from = "https://consultingwebsite-marian.netlify.app/*"
+  to = "https://mariankrotov.com/:splat"
+  status = 301
+  force = true
+
+# Security headers. HSTS is already sent by Netlify
+# (strict-transport-security: max-age=31536000).
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=(), interest-cohort=()"
