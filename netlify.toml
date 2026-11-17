@@ -28,6 +28,8 @@
   for = "/*"
   [headers.values]
     X-Content-Type-Options = "nosniff"
-    X-Frame-Options = "SAMEORIGIN"
+    # Let Yandex Webvisor embed pages during replay, while keeping the allowlist
+    # limited to the site itself and Yandex's documented playback domains.
+    Content-Security-Policy = "frame-ancestors 'self' https://webvisor.com https://*.webvisor.com https://metrika.yandex.ru https://*.metrika.yandex.ru https://metrika.yandex.by https://*.metrika.yandex.by https://metrica.yandex.com https://*.metrica.yandex.com https://metrica.yandex.com.tr https://*.metrica.yandex.com.tr"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "geolocation=(), microphone=(), camera=()"
