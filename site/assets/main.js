@@ -43,12 +43,35 @@
     return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
   }
 
+  var yandexFormFrames = Array.prototype.slice.call(document.querySelectorAll('.yandex-form-frame'));
+  yandexFormFrames.forEach(function (frame) {
+    frame.dataset.formEngaged = 'false';
+    frame.addEventListener('focus', function () {
+      frame.dataset.formEngaged = 'true';
+    });
+  });
+
+  function syncYandexFormTheme(theme) {
+    yandexFormFrames.forEach(function (frame) {
+      if (frame.dataset.formEngaged === 'true') return;
+      try {
+        var formUrl = new URL(frame.getAttribute('src'), window.location.href);
+        formUrl.searchParams.set('theme', theme === 'dark' ? 'dark-hc' : 'light-hc');
+        var nextSrc = formUrl.toString();
+        if (frame.src !== nextSrc) frame.src = nextSrc;
+      } catch (e) {}
+    });
+  }
+
   function applyTheme(theme) {
     root.setAttribute('data-theme', theme);
+    syncYandexFormTheme(theme);
     try { localStorage.setItem(STORAGE_KEY, theme); } catch (e) {}
     var meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.setAttribute('content', theme === 'dark' ? '#0f1113' : '#f7f5f0');
   }
+
+  syncYandexFormTheme(currentTheme());
 
   if (toggle) {
     toggle.addEventListener('click', function () {
