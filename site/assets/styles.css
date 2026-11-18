@@ -1097,6 +1097,19 @@ button, input, textarea { font: inherit; color: inherit; }
   line-height: 1.55;
 }
 
+
+/* Yandex Forms embed */
+.yandex-form-frame {
+  display: block;
+  width: 100%;
+  min-height: 1080px;
+  border: 0;
+  background: var(--surface);
+}
+@media (max-width: 640px) {
+  .yandex-form-frame { min-height: 1320px; }
+}
+
 /* ---------------------------------- Footer --------------------------------- */
 .site-footer {
   border-top: 1px solid var(--border-soft);
