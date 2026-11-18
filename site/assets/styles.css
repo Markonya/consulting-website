@@ -1109,8 +1109,7 @@ button, input, textarea { font: inherit; color: inherit; }
   min-height: 1080px;
   border: 0;
   border-radius: 10px;
-  background: #fff;
-  color-scheme: light;
+  background: var(--surface);
 }
 @media (max-width: 640px) {
   .yandex-form-frame { min-height: 1320px; }
