@@ -14,4 +14,18 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://mariankrotov.com/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mariankrotov.com/"/>
   </url>
+  <url>
+    <loc>https://mariankrotov.com/articles/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mariankrotov.com/articles/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mariankrotov.com/en/articles/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mariankrotov.com/articles/"/>
+  </url>
+  <url>
+    <loc>https://mariankrotov.com/en/articles/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mariankrotov.com/articles/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mariankrotov.com/en/articles/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mariankrotov.com/articles/"/>
+  </url>
 </urlset>
