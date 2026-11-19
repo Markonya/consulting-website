@@ -1022,6 +1022,28 @@ button, input, textarea { font: inherit; color: inherit; }
 .pub-title { font-family: var(--font-display); font-size: 16px; line-height: 1.4; }
 .pub-list svg { color: var(--accent); }
 
+.article-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.article-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 250px;
+  padding: 24px 24px 22px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: border-color .2s ease, transform .2s ease, box-shadow .25s ease;
+}
+.article-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+.article-meta { margin: 0 0 12px; color: var(--accent); }
+.article-card h3 { font-size: 20px; line-height: 1.2; margin: 0 0 12px; }
+.article-card > p:not(.article-meta) { margin: 0; color: var(--ink-2); font-size: 14px; line-height: 1.6; }
+.article-link { margin-top: auto; padding-top: 20px; color: var(--accent); font-size: 13.5px; font-weight: 700; }
+
 /* ---------------------------------- Contact -------------------------------- */
 .contact-grid {
   display: grid;
@@ -1118,7 +1140,7 @@ button, input, textarea { font: inherit; color: inherit; }
 /* ---------------------------------- Footer --------------------------------- */
 .site-footer {
   border-top: 1px solid var(--border-soft);
-  padding: 46px 0 40px;
+  padding: 30px 0 26px;
   background: var(--bg);
 }
 .footer-inner {
@@ -1136,8 +1158,8 @@ button, input, textarea { font: inherit; color: inherit; }
 .footer-nav a:hover { color: var(--accent); }
 .footer-legal {
   grid-column: 1 / -1;
-  margin: 6px 0 0;
-  padding-top: 22px;
+  margin: 2px 0 0;
+  padding-top: 14px;
   border-top: 1px solid var(--border-soft);
   font-size: 12px;
   color: var(--muted);
@@ -1193,6 +1215,7 @@ button, input, textarea { font: inherit; color: inherit; }
   .hero-lead { font-size: 16.5px; }
   .hero-facts { flex-direction: column; gap: 10px; }
   .scope-grid { grid-template-columns: 1fr; }
+  .article-grid { grid-template-columns: 1fr; }
   .pricing-grid { grid-template-columns: 1fr; }
   .steps { grid-template-columns: 1fr; }
   .bench-row { grid-template-columns: 118px 1fr 54px; gap: 10px; }
@@ -1235,4 +1258,3 @@ button, input, textarea { font: inherit; color: inherit; }
 .faq-item summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; }
 .faq-item p { margin: 16px 0 0; line-height: 1.75; }
 .faq-links { margin-top: 28px; line-height: 1.8; }
-
